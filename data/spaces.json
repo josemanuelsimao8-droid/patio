@@ -1,0 +1,25 @@
+{
+	"spaces": [
+		{
+			"name": "A sala",
+			"description": "Luz baixa, mesas generosas e o ritmo tranquilo de uma refeição longa.",
+			"location": "Interior",
+			"capacity": "60 pessoas",
+			"image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85"
+		},
+		{
+			"name": "O pátio",
+			"description": "Ao ar livre, entre sombra e verde, para deixar a tarde acontecer.",
+			"location": "Exterior",
+			"capacity": "80 pessoas",
+			"image": "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=900&q=85"
+		},
+		{
+			"name": "O bar",
+			"description": "Um lugar para chegar cedo ou ficar até ao último copo.",
+			"location": "Bar",
+			"capacity": "24 pessoas",
+			"image": "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?auto=format&fit=crop&w=900&q=85"
+		}
+	]
+}

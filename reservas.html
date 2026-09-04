@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Peça uma mesa ou consulte um espaço para o seu evento no Pátio Luanda."
+    />
+    <meta property="og:title" content="Reservas | Pátio Luanda" />
+    <title>Reservas | Pátio Luanda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header></header>
+    <main>
+      <section class="page-title" style="
+    background-image: linear-gradient(rgba(82, 52, 30, 0.45), rgba(82, 52, 30, 0.45)), url('assets/images/1.jpg');
+    background-size: cover;
+    background-position: center;
+">
+        <div class="wrap reveal">
+          <p class="eyebrow">A sua mesa</p>
+          <h1>O próximo encontro começa aqui.</h1>
+        </div>
+      </section>
+      <section class="wrap form reveal">
+        <p class="form-note">
+          Este pedido será validado no seu navegador e preparado para integração
+          posterior. A disponibilidade só será confirmada pela equipa.
+        </p>
+        <form class="form-grid" data-reservation-form>
+          <div class="field">
+            <label for="type">Quero reservar</label
+            ><select id="type" name="type">
+              <option value="table">Mesa</option>
+              <option value="event">Espaço para evento</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="space">Espaço</label
+            ><select id="space" name="space">
+              <option>A sala</option>
+              <option>O pátio</option>
+              <option>O bar</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="date">Data</label
+            ><input id="date" name="date" type="date" required />
+          </div>
+          <div class="field">
+            <label for="time">Horário</label
+            ><input id="time" name="time" type="time" required />
+          </div>
+          <div class="field">
+            <label for="guests" data-guest-label>Pessoas</label
+            ><input
+              id="guests"
+              name="guests"
+              type="number"
+              min="1"
+              max="200"
+              required
+            />
+          </div>
+          <div class="field hidden" data-event-fields>
+            <label for="event-type">Tipo de evento</label
+            ><input id="event-type" name="eventType" type="text" />
+          </div>
+          <div class="field">
+            <label for="name">Nome</label
+            ><input
+              id="name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="phone">Telefone</label
+            ><input
+              id="phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="email">Email</label
+            ><input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+          <div class="field full">
+            <label for="message">Observações / mensagem</label
+            ><textarea id="message" name="message"></textarea>
+          </div>
+          <div class="field full">
+            <button class="button" type="submit">Enviar pedido</button>
+          </div>
+        </form>
+        <p class="form-status hidden" data-form-status role="status">
+          Recebemos o seu pedido neste dispositivo. A equipa do Pátio deverá
+          confirmar a disponibilidade por telefone ou email.
+        </p>
+      </section>
+    </main>
+    <footer data-footer></footer>
+    <script src="js/main.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/reservations.js" defer></script>
+    <script src="js/animations.js" defer></script>
+  </body>
+</html>

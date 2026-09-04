@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Conheça a história, a cozinha e o ambiente do Pátio Luanda."
+    />
+    <meta property="og:title" content="O Pátio | Pátio Luanda" />
+    <title>O Pátio | Pátio Luanda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header></header>
+    <main>
+      <section class="page-title" style="
+    background-image: linear-gradient(rgba(82, 52, 30, 0.45), rgba(82, 52, 30, 0.45)), url('assets/images/1.jpg');
+    background-size: cover;
+    background-position: center;
+">
+        <div class="wrap">
+          <p class="eyebrow">Um lugar para ficar</p>
+          <h1>Um pátio com tempo para tudo.</h1>
+        </div>
+      </section>
+      <section class="content-grid wrap">
+        <div>
+          <p class="eyebrow">A nossa história</p>
+          <h2>Luanda à mesa.</h2>
+        </div>
+        <div class="prose">
+          <p>
+           10 anos de história de um projecto criado para suprir as necessidades de 
+           serviços diversificados na zona sul de Luanda. 
+          </p>
+          <p>
+            Complexo hoteleiro com multi-serviços compostos por: petiscaria, cafe, restaurante, 
+            showroom, salão de eventos, espaço de recreio infantil e guesthouse, 
+            salas de formação, com estacionamento privado localizado no Morro Bento.
+          </p>
+          <img
+            loading="lazy"
+            width="1000"
+            height="650"
+            src="assets/images/2.jpg"
+            alt="Mesa posta no interior do Pátio Luanda"
+          />
+        </div>
+      </section>
+      <section class="section-pad">
+        <div class="wrap">
+          <p class="eyebrow">O ambiente</p>
+          <div class="gallery-grid" data-gallery>
+            <img
+              loading="lazy"
+              width="900"
+              height="600"
+              src="assets/images/prato6.jpg"
+              alt="Sala principal do restaurante"
+            /><img
+              loading="lazy"
+              width="900"
+              height="600"
+              src="assets/images/prato5.jpeg"
+              alt="Pátio exterior com mesas"
+            /><img
+              loading="lazy"
+              width="900"
+              height="600"
+              src="assets/images/prato7.jpg"
+              alt="Bar com iluminação suave"
+            />
+          </div>
+        </div>
+      </section>
+      <div
+        class="lightbox hidden"
+        data-lightbox
+        role="dialog"
+        aria-modal="true"
+        aria-label="Galeria"
+      >
+        <button data-close aria-label="Fechar">×</button
+        ><button data-prev aria-label="Imagem anterior">←</button
+        ><img width="1200" height="800" src="" alt="" /><button
+          data-next
+          aria-label="Próxima imagem"
+        >
+          →
+        </button>
+      </div>
+    </main>
+    <footer data-footer></footer>
+    <script src="js/main.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/gallery.js" defer></script>
+  </body>
+</html>

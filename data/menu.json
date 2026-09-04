@@ -1,0 +1,24 @@
+{
+	"categories": [
+		{
+			"category": "Para começar",
+			"items": [
+				{ "name": "Pão de mandioca e manteiga fumada", "description": "Feito na casa, para partilhar", "price": "3 500 Kz" },
+				{ "name": "Camarão, malagueta e limão", "description": "Fresco, cítrico, ligeiramente picante", "price": "8 500 Kz" }
+			]
+		},
+		{
+			"category": "Pratos principais",
+			"items": [
+				{ "name": "Peixe do dia, molho de ginguba", "description": "Com legumes da estação e ervas", "price": "18 500 Kz" },
+				{ "name": "Arroz de forno, legumes tostados", "description": "Arroz cremoso, castanha de caju", "price": "14 000 Kz" }
+			]
+		},
+		{
+			"category": "Para terminar",
+			"items": [
+				{ "name": "Doce de maracujá e coco", "description": "Leve, fresco, feito hoje", "price": "6 000 Kz" }
+			]
+		}
+	]
+}

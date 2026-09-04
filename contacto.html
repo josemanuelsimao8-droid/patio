@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fale com o Pátio Luanda sobre reservas, eventos e visitas.">
+  <meta property="og:title" content="Contacto | Pátio Luanda">
+  <title>Contacto | Pátio Luanda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>  
+  <header class="site-header" data-header></header>
+  <main>
+    <section class="page-title" class="page-title" style="
+    background-image: linear-gradient(rgba(82, 52, 30, 0.45), rgba(82, 52, 30, 0.45)), url('assets/images/1.jpg');
+    background-size: cover;
+    background-position: center;
+">
+      <div class="wrap reveal">
+        <p class="eyebrow">Fale connosco</p>
+        <h1>Estamos desse lado.</h1>
+      </div>
+    </section>
+    <section class="wrap content-grid reveal">
+      <div>
+        <p class="eyebrow">Visite-nos</p>
+        <h2>Murro Bento,<br>Luanda.</h2>
+        <p>Terça a domingo<br>12h — 23h</p>
+      </div>
+      <form class="form-grid" data-contact-form>
+        <div class="field"><label for="contact-name">Nome</label><input id="contact-name" type="text" required></div>
+        <div class="field"><label for="contact-email">Email</label><input id="contact-email" type="email" required></div>
+        <div class="field"><label for="contact-phone">Telefone</label><input id="contact-phone" type="tel" required></div>
+        <div class="field"><label for="subject">Assunto</label><input id="subject" type="text" required></div>
+        <div class="field full"><label for="contact-message">Mensagem</label><textarea id="contact-message" required></textarea></div>
+        <div class="field full"><button class="button" type="submit">Enviar mensagem</button></div>
+        <p class="form-status hidden full" data-contact-status role="status">A sua mensagem foi preparada neste dispositivo. A equipa deverá responder através dos contactos oficiais.</p>
+      </form>
+    </section>
+  </main>
+  <footer data-footer></footer>
+  <script src="js/main.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/reservations.js" defer></script>
+  <script src="js/animations.js" defer></script>
+</body>
+</html>
