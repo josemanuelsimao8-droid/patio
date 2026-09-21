@@ -1,25 +1,40 @@
 {
 	"spaces": [
 		{
-			"name": "A sala",
-			"description": "Luz baixa, mesas generosas e o ritmo tranquilo de uma refeição longa.",
-			"location": "Interior",
-			"capacity": "60 pessoas",
-			"image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85"
+			"name": "Morro Bento",
+			"href": "morrobento.html",
+			"description": "Onde tudo começou. Um destino completo, entre gastronomia, eventos, lazer e hospitalidade.",
+			"location": "Morro Bento, Luanda",
+			"capacity": "Eventos e restauração",
+			"image": "assets/images/1.jpg",
+			"facts": ["Esplanada", "Área de eventos", "Guest House", "Catering"]
 		},
 		{
-			"name": "O pátio",
-			"description": "Ao ar livre, entre sombra e verde, para deixar a tarde acontecer.",
-			"location": "Exterior",
-			"capacity": "80 pessoas",
-			"image": "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=900&q=85"
+			"name": "Mutamba",
+			"href": "mutamba.html",
+			"description": "No coração da cidade, um espaço elegante para almoços, jantares e celebrações.",
+			"location": "Mutamba, Luanda",
+			"capacity": "Salas e esplanada",
+			"image": "assets/images/9.jpg",
+			"facts": ["Salas interiores", "Esplanada", "Centro da cidade"]
 		},
 		{
-			"name": "O bar",
-			"description": "Um lugar para chegar cedo ou ficar até ao último copo.",
-			"location": "Bar",
-			"capacity": "24 pessoas",
-			"image": "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?auto=format&fit=crop&w=900&q=85"
+			"name": "Roots",
+			"href": "roots.html",
+			"description": "Uma leitura mais íntima da cozinha Pátio, com sushi e jantares especiais.",
+			"location": "Luanda",
+			"capacity": "Ambiente intimista",
+			"image": "assets/images/2.jpg",
+			"facts": ["Sushi", "Jantares privados", "Ambiente contemporâneo"]
+		},
+		{
+			"name": "Pastelaria Pátio",
+			"href": "espacos.html#pastelaria",
+			"description": "Produção própria para acompanhar rotinas, pausas e pequenos prazeres.",
+			"location": "Morro Bento",
+			"capacity": "Doçaria e salgados",
+			"image": "assets/images/prato6.jpg",
+			"facts": ["Doce", "Salgados", "Produção própria"]
 		}
 	]
 }

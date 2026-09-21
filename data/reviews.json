@@ -1,12 +1,24 @@
 {
 	"reviews": [
 		{
-			"quote": "Um lugar onde a pressa fica à porta.",
-			"author": "Visitante do Pátio"
+			"quote": "O Pátio Luanda é o nosso parceiro de eleição para eventos da empresa. Profissionalismo, flexibilidade e uma equipa atenta aos detalhes.",
+			"author": "Carlos Mendes",
+			"role": "Director de Marketing · Evento corporativo"
 		},
 		{
-			"quote": "A mesa, os sabores e o serviço no ponto.",
-			"author": "Cliente Pátio"
+			"quote": "O nosso casamento no Pátio foi simplesmente perfeito. A mesa cuidada de fundo com tanto carinho e profissionalismo. Os nossos convidados ainda falam da experiência.",
+			"author": "Ana e Miguel",
+			"role": "Evento privado · Casamento"
+		},
+		{
+			"quote": "Celebrámos o aniversário do nosso filho no Pátio e foi uma experiência incrível. Comida excelente, espaço lindo e uma equipa fantástica.",
+			"author": "Família Silva",
+			"role": "Evento familiar"
+		},
+		{
+			"quote": "Um lugar onde a pressa fica à porta. A mesa, os sabores e o serviço no ponto — e ainda ficámos mais um pouco.",
+			"author": "Visitante do Pátio",
+			"role": "Jantar no Morro Bento"
 		}
 	]
 }

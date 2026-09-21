@@ -1,23 +1,52 @@
 {
 	"categories": [
 		{
-			"category": "Para começar",
+			"id": "carnes",
+			"category": "Carnes",
 			"items": [
-				{ "name": "Pão de mandioca e manteiga fumada", "description": "Feito na casa, para partilhar", "price": "3 500 Kz" },
-				{ "name": "Camarão, malagueta e limão", "description": "Fresco, cítrico, ligeiramente picante", "price": "8 500 Kz" }
+				{ "name": "A Nossa Picanha", "description": "Picanha grelhada com azeite, alho e ervas frescas.", "price": "22 500 Kz", "image": "assets/images/prato8.jpg" },
+				{ "name": "Costela glaceada", "description": "Cozida lentamente, com toque cítrico e fumo suave.", "price": "19 800 Kz", "image": "assets/images/prato2.jpg" }
 			]
 		},
 		{
-			"category": "Pratos principais",
+			"id": "mar",
+			"category": "Do Mar",
 			"items": [
-				{ "name": "Peixe do dia, molho de ginguba", "description": "Com legumes da estação e ervas", "price": "18 500 Kz" },
-				{ "name": "Arroz de forno, legumes tostados", "description": "Arroz cremoso, castanha de caju", "price": "14 000 Kz" }
+				{ "name": "Polvo à Lagareiro", "description": "Polvo grelhado com pimentos, cebola e azeite aromático.", "price": "17 000 Kz", "image": "assets/images/prato5.jpeg" },
+				{ "name": "Peixe do dia, molho de ginguba", "description": "Fresco, com legumes da estação e ervas.", "price": "18 500 Kz", "image": "assets/images/prato3.jpg" },
+				{ "name": "Camarão ao Alho", "description": "Camarões salteados com alho, ervas e toque de limão.", "price": "14 500 Kz", "image": "assets/images/prato4.jpg" }
 			]
 		},
 		{
-			"category": "Para terminar",
+			"id": "entradas",
+			"category": "Entradas",
 			"items": [
-				{ "name": "Doce de maracujá e coco", "description": "Leve, fresco, feito hoje", "price": "6 000 Kz" }
+				{ "name": "Pão de mandioca e manteiga fumada", "description": "Feito na casa, para partilhar à mesa.", "price": "3 500 Kz", "image": "assets/images/prato1.jpeg" },
+				{ "name": "Camarão, malagueta e limão", "description": "Fresco, cítrico, ligeiramente picante.", "price": "8 500 Kz", "image": "assets/images/prato7.jpg" }
+			]
+		},
+		{
+			"id": "sobremesas",
+			"category": "Sobremesas",
+			"items": [
+				{ "name": "Arroz Doce Artesanal", "description": "Receita tradicional, com canela e um toque especial.", "price": "2 500 Kz", "image": "assets/images/prato6.jpg" },
+				{ "name": "Doce de maracujá e coco", "description": "Leve, fresco, feito hoje.", "price": "6 000 Kz", "image": "assets/images/prato1.jpg" }
+			]
+		},
+		{
+			"id": "bebidas",
+			"category": "Bebidas",
+			"items": [
+				{ "name": "Vinho da casa, taça", "description": "Seleção pensada para acompanhar a mesa.", "price": "4 500 Kz", "image": "assets/images/8.jpeg" },
+				{ "name": "Cocktail Pátio", "description": "Cítrico, fresco, com memória de Luanda.", "price": "7 000 Kz", "image": "assets/images/6.jpeg" }
+			]
+		},
+		{
+			"id": "sushi",
+			"category": "Sushi",
+			"items": [
+				{ "name": "Seleção Roots", "description": "Combinacões frescas, só no Roots by Pátio Luanda.", "price": "16 500 Kz", "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=900&q=80" },
+				{ "name": "Rolls da casa", "description": "Equilíbrio entre tradição e uma leitura contemporânea.", "price": "12 800 Kz", "image": "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=900&q=80" }
 			]
 		}
 	]
