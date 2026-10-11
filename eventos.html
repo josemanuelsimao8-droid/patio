@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Planeie celebrações especiais e eventos empresariais com o Grupo Pátio. Peça uma proposta para a sua ocasião."
+    />
+    <meta property="og:title" content="Eventos | Grupo Pátio" />
+    <title>Eventos | Grupo Pátio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=20261009-eventos" />
+    <link rel="stylesheet" href="css/responsive.css?v=20261009-eventos-2" />
+    <link rel="stylesheet" href="css/animations.css?v=20261009-eventos" />
+  </head>
+  <body>
+    <header class="site-header" data-header></header>
+    <main>
+      <section
+        class="event-hero"
+        style="background-image: linear-gradient(90deg, rgba(35, 22, 18, 0.82), rgba(35, 22, 18, 0.2)), url('assets/images/4.jpg');"
+      >
+        <div class="wrap reveal">
+          <p class="eyebrow">Encontros especiais, bem organizados</p>
+          <h1>Eventos que merecem o cenário certo.</h1>
+          <p class="event-hero-copy">Celebrações, reuniões, formações e jantares privados, com a hospitalidade do Grupo Pátio.</p>
+          <div class="btn-row">
+            <a class="btn" href="#pedido">Pedir Proposta</a>
+          </div>
+        </div>
+      </section>
+      <section class="event-request-section" id="pedido">
+        <div class="wrap event-request">
+          <aside class="event-intro">
+            <p class="eyebrow">Pedido comercial</p>
+            <h2>Vamos conversar sobre o seu evento.</h2>
+            <p class="lede">Partilhe os primeiros detalhes. A equipa comercial poderá receber o pedido pelo WhatsApp e responder através desse canal.</p>
+            <ol class="event-steps" aria-label="Como funciona o pedido">
+              <li><span>01</span><p><strong>Conte-nos o essencial</strong> sobre a ocasião e o espaço pretendido.</p></li>
+              <li><span>02</span><p><strong>Reveja o pedido</strong> na mensagem que abriremos no WhatsApp.</p></li>
+              <li><span>03</span><p><strong>Toque em Enviar</strong> para a equipa comercial o receber e responder.</p></li>
+            </ol>
+            <p class="event-routing-note">O pedido só é enviado após a sua confirmação no WhatsApp oficial do Grupo Pátio: <a href="https://wa.me/244941180424">+244 941 180 424</a>. A equipa autorizada a gerir essa conta poderá responder-lhe por esse canal.</p>
+          </aside>
+          <div class="event-form-column">
+            <form class="event-form" data-event-form>
+              <fieldset class="event-form-group">
+                <legend>Os seus contactos</legend>
+                <p class="event-form-hint"><span aria-hidden="true">*</span> Campos obrigatórios</p>
+                <div class="event-form-grid">
+                  <div class="field">
+                    <label for="event-name">Nome <span class="required-mark" aria-hidden="true">*</span></label>
+                    <input id="event-name" name="name" type="text" autocomplete="name" required />
+                  </div>
+                  <div class="field">
+                    <label for="event-company">Empresa <span class="optional-mark">(opcional)</span></label>
+                    <input id="event-company" name="company" type="text" autocomplete="organization" />
+                  </div>
+                  <div class="field">
+                    <label for="event-contact">Telefone / WhatsApp <span class="required-mark" aria-hidden="true">*</span></label>
+                    <input id="event-contact" name="contact" type="tel" autocomplete="tel" required />
+                  </div>
+                  <div class="field">
+                    <label for="event-email">E-mail <span class="optional-mark">(opcional)</span></label>
+                    <input id="event-email" name="email" type="email" autocomplete="email" />
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="event-form-group">
+                <legend>Detalhes do evento</legend>
+                <div class="event-form-grid">
+                  <div class="field">
+                    <label for="event-type">Tipo de evento <span class="required-mark" aria-hidden="true">*</span></label>
+                    <select id="event-type" name="type" required>
+                      <option value="" selected disabled>Selecione uma opção</option>
+                      <option>Casamento ou celebração</option>
+                      <option>Aniversário</option>
+                      <option>Reunião ou evento empresarial</option>
+                      <option>Formação ou conferência</option>
+                      <option>Jantar privado</option>
+                      <option>Outro</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="event-date">Data prevista <span class="required-mark" aria-hidden="true">*</span></label>
+                    <input id="event-date" name="date" type="date" required />
+                  </div>
+                  <div class="field">
+                    <label for="event-guests">Número de convidados <span class="required-mark" aria-hidden="true">*</span></label>
+                    <input id="event-guests" name="guests" type="number" min="1" max="1000" required />
+                  </div>
+                  <div class="field">
+                    <label for="event-space">Espaço pretendido <span class="required-mark" aria-hidden="true">*</span></label>
+                    <select id="event-space" name="space" required>
+                      <option value="" selected disabled>Selecione uma opção</option>
+                      <option>Pátio Morro Bento</option>
+                      <option>Pátio Mutamba</option>
+                      <option>Roots by Pátio Luanda</option>
+                      <option>Pátio Aeroporto</option>
+                      <option>A definir com a equipa</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="event-form-group">
+                <legend>Mensagem <span class="optional-mark">(opcional)</span></legend>
+                <div class="event-form-grid">
+                  <div class="field event-message-field">
+                    <label for="event-notes">Conte-nos mais sobre o que tem em mente</label>
+                    <textarea id="event-notes" name="notes" rows="4" placeholder="Preferências, horários ou outros detalhes"></textarea>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="event-submit">
+                <p>O WhatsApp abrirá com a mensagem pronta para rever e enviar.</p>
+                <button class="btn" type="submit">Pedir Proposta</button>
+              </div>
+            </form>
+            <div class="form-status hidden" data-event-status role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer data-footer></footer>
+    <script src="js/config.js?v=20261009-airport" defer></script>
+    <script src="js/main.js?v=20261009-airport" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/forms.js" defer></script>
+    <script src="js/animations.js" defer></script>
+  </body>
+</html>

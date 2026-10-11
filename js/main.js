@@ -4,7 +4,6 @@ const NAV = [
 		href: 'descobrir.html',
 		items: [
 			['A Nossa História', 'descobrir.html#historia'],
-			['Sobre o Pátio', 'descobrir.html'],
 			['A Nossa Cozinha', 'descobrir.html#cozinha'],
 			['Galeria', 'descobrir.html'],
 			['Experiência Pátio', 'descobrir.html#experiencia'],
@@ -18,7 +17,8 @@ const NAV = [
 			['Mutamba', 'mutamba.html'],
 			['Roots', 'roots.html'],
 			['Pastelaria Pátio', 'espacos.html#pastelaria'],
-			['Catering', 'espacos.html#servicos'],
+			['Pátio Aeroporto', 'espacos.html#aeroporto'],
+			['Eventos', 'eventos.html'],
 			['Outras áreas e serviços', 'espacos.html#servicos'],
 		],
 	},
@@ -26,13 +26,15 @@ const NAV = [
 		label: 'Menus',
 		href: 'menus.html',
 		items: [
-			['Menu Principal', 'menus.html#principal'],
-			['Menu Roots', 'menus.html#roots'],
+			['Menu Roots / Pátio Mutamba', 'menus.html#menu-roots'],
 			['Bebidas', 'menus.html#bebidas'],
 			['Sobremesas', 'menus.html#sobremesas'],
+			['Pastelaria', 'menus.html#pastelaria'],
+			['Menu de Sushi', 'menus.html#sushi'],
 		],
 	},
 	{ label: 'Contactos', href: 'contacto.html' },
+	{ label: 'Fala Comigo', href: 'fala-comigo.html' },
 ];
 
 const pageFile = location.pathname.split('/').pop() || 'index.html';
@@ -102,20 +104,22 @@ if (footer) {
 						<a href="espacos.html">Os nossos espaços</a>
 						<a href="menus.html">Menus</a>
 						<a href="contacto.html">Contactos</a>
+						<a href="fala-comigo.html">Fala Comigo</a>
 					</div>
 					<div>
 						<h4>Reservar</h4>
 						<button class="text-link" type="button" data-open-reserva>Reservar mesa</button>
-						<a href="reservas.html">Pedir proposta</a>
+						<a href="eventos.html">Pedir Proposta</a>
 						<a href="${patioWhatsAppUrl()}">WhatsApp</a>
 						<a href="tel:${PATIO.phone.replace(/\s/g, '')}">${PATIO.phone}</a>
 						<a href="mailto:${PATIO.email}">${PATIO.email}</a>
 					</div>
 					<div>
 						<h4>Localizações</h4>
-						<p>Morro Bento · ${PATIO.locations.morrobento.address}</p>
-						<p>Mutamba · ${PATIO.locations.mutamba.address}</p>
-						<p>Roots by Pátio Luanda</p>
+						<a href="${PATIO.locations.morrobento.mapsUrl}" target="_blank" rel="noopener">Pátio Luanda · Morro Bento</a>
+						<a href="${PATIO.locations.pastelaria?.mapsUrl || PATIO.locations.morrobento.mapsUrl}" target="_blank" rel="noopener">Pastelaria Pátio · Morro Bento</a>
+						<a href="${PATIO.locations.roots.mapsUrl}" target="_blank" rel="noopener">Roots · Luanda</a>
+						<a href="${PATIO.locations.mutamba.mapsUrl}" target="_blank" rel="noopener">Pátio Luanda · Mutamba</a>
 						<p>${PATIO.hours}</p>
 					</div>
 				</div>
@@ -149,6 +153,7 @@ document.body.insertAdjacentHTML('beforeend', `
 						<option value="Pátio Morro Bento">Pátio Morro Bento</option>
 						<option value="Pátio Mutamba">Pátio Mutamba</option>
 						<option value="Roots">Roots</option>
+						<option value="Pátio Aeroporto">Pátio Aeroporto</option>
 					</select>
 				</div>
 				<div class="field full"><label for="res-notes">Observações</label><textarea id="res-notes" name="notes"></textarea></div>

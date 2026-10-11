@@ -9,43 +9,97 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/style.css?v=20261009-locations-2">
+  <link rel="stylesheet" href="css/responsive.css?v=20261009-locations-2">
   <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>  
   <header class="site-header" data-header></header>
   <main>
-    <section class="page-title" class="page-title" style="
-    background-image: linear-gradient(rgba(82, 52, 30, 0.45), rgba(82, 52, 30, 0.45)), url('assets/images/1.jpg');
-    background-size: cover;
-    background-position: center;
-">
+    <section class="contact-hero" style="background-image: linear-gradient(90deg, rgba(35, 22, 18, 0.82), rgba(35, 22, 18, 0.2)), url('assets/images/1.jpg');">
       <div class="wrap reveal">
-        <p class="eyebrow">Fale connosco</p>
+        <p class="eyebrow">Pátio Luanda · Luanda</p>
         <h1>Estamos desse lado.</h1>
+        <p>Fale connosco sobre a sua visita, uma reserva ou qualquer questão.</p>
+        <a class="btn" href="#mensagem">Enviar uma mensagem</a>
       </div>
     </section>
-    <section class="wrap content-grid reveal">
-      <div>
-        <p class="eyebrow">Visite-nos</p>
-        <h2>Murro Bento,<br>Luanda.</h2>
-        <p>Terça a domingo<br>12h — 23h</p>
+    <section class="contact-section" id="mensagem">
+      <div class="wrap contact-layout">
+        <aside class="contact-intro">
+          <p class="eyebrow">Contactos</p>
+          <h2>Como podemos ajudar?</h2>
+          <p class="lede">Escolha o canal mais conveniente ou deixe-nos uma mensagem.</p>
+          <div class="contact-details">
+            <a class="contact-detail" href="tel:+244941180424">
+              <span>Telefone e WhatsApp</span>
+              <strong>+244 941 180 424</strong>
+            </a>
+            <a class="contact-detail" href="mailto:ola@patioluanda.co.ao">
+              <span>E-mail</span>
+              <strong>ola@patioluanda.co.ao</strong>
+            </a>
+            <div class="contact-detail">
+              <span>Morada · Morro Bento</span>
+              <strong>Av. Pedro de Castro Van-Dúnem Loy, Morro Bento, Luanda</strong>
+            </div>
+            <div class="contact-detail">
+              <span>Horário geral</span>
+              <strong>Terça a domingo · 12h–23h</strong>
+            </div>
+          </div>
+        </aside>
+        <div class="contact-form-column">
+          <form class="contact-form event-form" data-contact-form>
+            <fieldset class="event-form-group">
+              <legend>Os seus dados</legend>
+              <p class="event-form-hint"><span aria-hidden="true">*</span> Campos obrigatórios</p>
+              <div class="event-form-grid">
+                <div class="field">
+                  <label for="contact-name">Nome <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="contact-name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="contact-phone">Telefone / WhatsApp <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="contact-phone" name="phone" type="tel" autocomplete="tel" required>
+                </div>
+                <div class="field">
+                  <label for="contact-email">E-mail <span class="optional-mark">(opcional)</span></label>
+                  <input id="contact-email" name="email" type="email" autocomplete="email">
+                </div>
+                <div class="field">
+                  <label for="contact-subject">Assunto <span class="required-mark" aria-hidden="true">*</span></label>
+                  <select id="contact-subject" name="subject" required>
+                    <option value="" selected disabled>Selecione uma opção</option>
+                    <option>Informações gerais</option>
+                    <option>Reservas</option>
+                    <option>Eventos</option>
+                    <option>Os nossos espaços</option>
+                    <option>Menus</option>
+                    <option>Outro assunto</option>
+                  </select>
+                </div>
+                <div class="field event-message-field">
+                  <label for="contact-message">Mensagem <span class="required-mark" aria-hidden="true">*</span></label>
+                  <textarea id="contact-message" name="message" rows="5" placeholder="Escreva aqui a sua mensagem" required></textarea>
+                </div>
+              </div>
+            </fieldset>
+            <div class="contact-submit">
+              <p>O WhatsApp abrirá com a mensagem pronta. Reveja-a e toque em Enviar para nos contactar.</p>
+              <button class="btn" type="submit">Continuar no WhatsApp</button>
+            </div>
+          </form>
+          <div class="form-status hidden" data-contact-status role="status" aria-live="polite"></div>
+        </div>
       </div>
-      <form class="form-grid" data-contact-form>
-        <div class="field"><label for="contact-name">Nome</label><input id="contact-name" type="text" required></div>
-        <div class="field"><label for="contact-email">Email</label><input id="contact-email" type="email" required></div>
-        <div class="field"><label for="contact-phone">Telefone</label><input id="contact-phone" type="tel" required></div>
-        <div class="field"><label for="subject">Assunto</label><input id="subject" type="text" required></div>
-        <div class="field full"><label for="contact-message">Mensagem</label><textarea id="contact-message" required></textarea></div>
-        <div class="field full"><button class="button" type="submit">Enviar mensagem</button></div>
-        <p class="form-status hidden full" data-contact-status role="status">A sua mensagem foi preparada neste dispositivo. A equipa deverá responder através dos contactos oficiais.</p>
-      </form>
     </section>
   </main>
   <footer data-footer></footer>
-  <script src="js/main.js" defer></script>
+  <script src="js/config.js?v=20261009-airport" defer></script>
+  <script src="js/main.js?v=20261009-airport" defer></script>
   <script src="js/navigation.js" defer></script>
+  <script src="js/forms.js?v=20261009-airport" defer></script>
   <script src="js/reservations.js" defer></script>
   <script src="js/animations.js" defer></script>
 </body>

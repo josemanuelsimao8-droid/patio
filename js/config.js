@@ -11,27 +11,45 @@ const PATIO = {
 	linkedin: 'https://www.linkedin.com/',
 	spaces: [
 		{ id: 'morrobento', name: 'Pátio Morro Bento', short: 'Morro Bento', href: 'morrobento.html' },
+		{ id: 'pastelaria', name: 'Pastelaria Pátio', short: 'Pastelaria', href: 'espacos.html#pastelaria' },
 		{ id: 'mutamba', name: 'Pátio Mutamba', short: 'Mutamba', href: 'mutamba.html' },
 		{ id: 'roots', name: 'Roots by Pátio Luanda', short: 'Roots', href: 'roots.html' },
+		{ id: 'aeroporto', name: 'Pátio Aeroporto', short: 'Aeroporto', href: 'espacos.html#aeroporto' },
 	],
 	locations: {
 		morrobento: {
 			name: 'Pátio Morro Bento',
 			address: 'Av. Pedro de Castro Van-Dúnem Loy, Morro Bento, Luanda',
+			image: 'assets/images/7.jpeg',
 			map: 'https://www.google.com/maps?q=Morro+Bento+Luanda&output=embed',
 			mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Morro+Bento+Luanda',
+		},
+		pastelaria: {
+			name: 'Pastelaria Pátio',
+			address: 'Morro Bento, Luanda',
+			image: 'assets/images/prato6.jpg',
+			map: 'https://www.google.com/maps?q=Pastelaria+Patio+Morro+Bento+Luanda&output=embed',
+			mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pastelaria+Patio+Morro+Bento+Luanda',
 		},
 		mutamba: {
 			name: 'Pátio Mutamba',
 			address: 'Mutamba, Luanda',
+			image: 'assets/images/9.jpg',
 			map: 'https://www.google.com/maps?q=Mutamba+Luanda&output=embed',
 			mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mutamba+Luanda',
 		},
 		roots: {
 			name: 'Roots by Pátio Luanda',
 			address: 'Luanda',
+			image: 'assets/images/2.jpg',
 			map: 'https://www.google.com/maps?q=Luanda+restaurante&output=embed',
-			mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Luanda',
+			mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Roots+by+Patio+Luanda',
+		},
+		aeroporto: {
+			name: 'Pátio Aeroporto',
+			address: 'Aeroporto, Luanda',
+			map: 'https://www.google.com/maps?q=Patio+Aeroporto+Luanda&output=embed',
+			mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Patio+Aeroporto+Luanda',
 		},
 	},
 };

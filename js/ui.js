@@ -73,32 +73,74 @@ if (menuRoot || menuPreview) {
 		}
 
 		if (menuRoot) {
+			const menuViews = [
+				{ id: 'menu-roots', label: 'Menu Roots / Pátio Mutamba', categories: ['carnes', 'mar', 'entradas'] },
+				{ id: 'bebidas', label: 'Bebidas', categories: ['bebidas'] },
+				{ id: 'sobremesas', label: 'Sobremesas', categories: ['sobremesas'] },
+				{ id: 'pastelaria', label: 'Pastelaria', categories: [] },
+				{ id: 'sushi', label: 'Menu de Sushi', categories: ['sushi'] },
+			];
+			const itemMarkup = (item) => `
+				<article class="menu-item">
+					<img src="${item.image}" alt="${item.name}" loading="lazy" width="240" height="180">
+					<div><h3>${item.name}</h3><p>${item.description}</p></div>
+					<span class="price">${item.price}</span>
+				</article>`;
 			const render = (id) => {
-				const cats = id === 'all' ? data.categories : data.categories.filter((cat) => cat.id === id);
-				menuRoot.innerHTML = cats.map((cat) => `
-					<section class="menu-category" id="${cat.id}">
-						<h2>${cat.category}</h2>
-						${cat.items.map((item) => `
-							<article class="menu-item">
-								<img src="${item.image}" alt="${item.name}" loading="lazy" width="240" height="180">
-								<div><h3>${item.name}</h3><p>${item.description}</p></div>
-								<span class="price">${item.price}</span>
-							</article>`).join('')}
-					</section>`).join('');
+				const view = menuViews.find((entry) => entry.id === id) || menuViews[0];
+				const categories = data.categories.filter((category) => view.categories.includes(category.id));
+				const content = view.id === 'pastelaria'
+					? `<div class="menu-feature">
+						<img src="assets/images/prato6.jpg" alt="Doçaria da Pastelaria Pátio" loading="lazy" width="900" height="700">
+						<div><h3>Produção própria, sabores do dia</h3><p>A Pastelaria Pátio prepara doces e salgados para acompanhar as suas pausas. A seleção varia diariamente; contacte a equipa para saber o que está disponível.</p><a class="text-link" href="espacos.html#pastelaria">Conhecer a Pastelaria Pátio</a></div>
+					</div>`
+					: categories.map((category) => `
+						<section class="menu-subcategory">
+							${view.id === 'menu-roots' ? `<h3>${category.category}</h3>` : ''}
+							${category.items.map(itemMarkup).join('')}
+						</section>`).join('');
+				const sushiLinks = view.id === 'sushi' ? `
+					<div class="menu-downloads">
+						<a class="btn" href="assets/menu-sushi.pdf" target="_blank" rel="noopener">Abrir menu de sushi (PDF)</a>
+						<a class="text-link" href="assets/menu-sushi.pdf" download="menu-sushi-roots.pdf">Descarregar PDF</a>
+					</div>` : '';
+				menuRoot.innerHTML = `<section class="menu-category"><h2>${view.label}</h2>${view.id === 'menu-roots' ? '<p class="lede">Uma carta partilhada entre o Roots e o Pátio Mutamba.</p>' : ''}${sushiLinks}${content}</section>`;
+				document.querySelectorAll('[data-menu-category]').forEach((button) => {
+					const active = button.dataset.menuCategory === view.id;
+					button.classList.toggle('is-active', active);
+					button.setAttribute('aria-pressed', String(active));
+				});
 			};
-			render('all');
-			document.querySelectorAll('[data-filter]').forEach((btn) => {
-				btn.addEventListener('click', () => {
-					document.querySelectorAll('[data-filter]').forEach((el) => el.classList.remove('is-active'));
-					btn.classList.add('is-active');
-					render(btn.dataset.filter);
+			const initialView = location.hash.slice(1);
+			render(menuViews.some((view) => view.id === initialView) ? initialView : menuViews[0].id);
+			document.querySelectorAll('[data-menu-category]').forEach((button) => {
+				button.addEventListener('click', () => {
+					render(button.dataset.menuCategory);
+					history.replaceState(null, '', `#${button.dataset.menuCategory}`);
 				});
 			});
+			window.addEventListener('hashchange', () => render(location.hash.slice(1)));
 		}
 	}).catch((error) => {
 		if (menuRoot) menuRoot.innerHTML = '<p>A carta está temporariamente indisponível. Fale connosco para conhecer os pratos do dia.</p>';
 		console.error(error);
 	});
+}
+
+const locationCards = document.querySelector('[data-location-cards]');
+if (locationCards) {
+	const locations = ['morrobento', 'pastelaria', 'roots', 'mutamba', 'aeroporto'].map((id) => PATIO.locations[id]);
+	locationCards.innerHTML = locations.map((place) => `
+		<article class="location">
+			${place.image ? `<img src="${place.image}" alt="${place.name}" loading="lazy" width="720" height="480">` : `<div class="location-image-placeholder" aria-label="Fotografia do Pátio Aeroporto ainda não disponível">Pátio Aeroporto</div>`}
+			<div class="location-body">
+				<h3>${place.name}</h3>
+				<p><strong>Morada</strong><br>${place.address}</p>
+				<p><strong>Horário geral</strong><br>${PATIO.hours}</p>
+				<p><strong>Contacto</strong><br><a href="tel:${PATIO.phone.replace(/\s/g, '')}">${PATIO.phone}</a><a href="mailto:${PATIO.email}">${PATIO.email}</a></p>
+				<a class="btn btn-ghost location-directions" href="${place.mapsUrl}" target="_blank" rel="noopener">Obter direções</a>
+			</div>
+		</article>`).join('');
 }
 
 const lightbox = document.querySelector('[data-lightbox]');

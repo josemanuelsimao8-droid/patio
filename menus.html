@@ -23,7 +23,7 @@
         <h1>Menus pensados para voltar.</h1>
         <p class="lede">Os sabores que já conhece, num menu pensado para momentos especiais. A carta principal é servida no Roots e na Mutamba, com a mesma qualidade à mesa.</p>
         <div class="btn-row">
-          <a class="btn" href="#principal">Ver menus</a>
+          <a class="btn" href="#menu-categorias">Ver menus</a>
           <button class="btn btn-light" type="button" data-open-reserva>Reservar mesa</button>
         </div>
       </div>
@@ -34,44 +34,29 @@
       </div>
     </section>
 
-    <section class="section" id="principal">
+    <section class="section" id="menu-categorias">
       <div class="wrap">
         <div class="section-head reveal">
           <div>
-            <p class="eyebrow">O nosso menu</p>
-            <h2>Os mesmos sabores, em dois espaços únicos.</h2>
+            <p class="eyebrow">Escolha uma categoria</p>
+            <h2>O que lhe apetece hoje?</h2>
           </div>
-          <p class="lede">Do mar à brasa, das entradas às sobremesas — com sushi no Roots.</p>
+          <p class="lede">Explore as cartas do Roots, do Pátio Mutamba e da Pastelaria Pátio.</p>
         </div>
-        <div class="filters">
-          <button class="filter-btn is-active" type="button" data-filter="all">Tudo</button>
-          <button class="filter-btn" type="button" data-filter="carnes">Carnes</button>
-          <button class="filter-btn" type="button" data-filter="mar">Do Mar</button>
-          <button class="filter-btn" type="button" data-filter="entradas">Entradas</button>
-          <button class="filter-btn" type="button" data-filter="sobremesas">Sobremesas</button>
-          <button class="filter-btn" type="button" data-filter="bebidas">Bebidas</button>
-          <button class="filter-btn" type="button" data-filter="sushi">Sushi</button>
+        <div class="filters menu-category-tabs" role="group" aria-label="Categorias de menu">
+          <button class="filter-btn is-active" type="button" id="menu-roots" data-menu-category="menu-roots" aria-pressed="true">Menu Roots / Pátio Mutamba</button>
+          <button class="filter-btn" type="button" id="bebidas" data-menu-category="bebidas" aria-pressed="false">Bebidas</button>
+          <button class="filter-btn" type="button" id="sobremesas" data-menu-category="sobremesas" aria-pressed="false">Sobremesas</button>
+          <button class="filter-btn" type="button" id="pastelaria" data-menu-category="pastelaria" aria-pressed="false">Pastelaria</button>
+          <button class="filter-btn" type="button" id="sushi" data-menu-category="sushi" aria-pressed="false">Menu de Sushi</button>
         </div>
         <div class="menu-board" data-menu-root></div>
       </div>
     </section>
-
-    <section class="section section-cream" id="roots">
-      <div class="wrap split reveal">
-        <div>
-          <p class="script" style="font-size:48px">Roots</p>
-          <p class="eyebrow">by Pátio Luanda</p>
-          <h2>No Roots, há também sushi.</h2>
-          <p class="lede">Além do menu principal Pátio Luanda, o Roots oferece uma seleção de sushi, rolls e combinações exclusivas, com ingredientes frescos e uma abordagem contemporânea.</p>
-          <button class="btn" type="button" data-filter="sushi" onclick="document.querySelector('[data-filter=sushi]').click(); document.getElementById('principal').scrollIntoView({behavior:'smooth'})">Ver menu sushi</button>
-        </div>
-        <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=1200&q=80" alt="Sushi no Roots" width="1000" height="800" loading="lazy">
-      </div>
-    </section>
   </main>
   <div data-footer></div>
-  <script src="js/config.js" defer></script>
-  <script src="js/main.js" defer></script>
+  <script src="js/config.js?v=20261009-airport" defer></script>
+  <script src="js/main.js?v=20261009-airport" defer></script>
   <script src="js/navigation.js" defer></script>
   <script src="js/ui.js" defer></script>
   <script src="js/forms.js" defer></script>

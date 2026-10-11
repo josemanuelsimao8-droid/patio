@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Partilhe a sua experiência nos espaços e serviços do Grupo Pátio. A sua opinião ajuda-nos a melhorar."
+    />
+    <meta property="og:title" content="Fala Comigo | Grupo Pátio" />
+    <title>Fala Comigo | Grupo Pátio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header></header>
+    <main>
+      <section
+        class="page-title"
+        style="background-image: linear-gradient(rgba(44, 26, 21, 0.48), rgba(44, 26, 21, 0.48)), url('assets/images/1.jpg'); background-size: cover; background-position: center;"
+      >
+        <div class="wrap reveal">
+          <p class="eyebrow">A sua voz melhora o Pátio</p>
+          <h1>Fala Comigo</h1>
+        </div>
+      </section>
+      <section class="feedback-section">
+        <div class="wrap feedback-layout">
+          <div class="feedback-intro">
+            <p class="eyebrow">Partilhe a sua experiência</p>
+            <h2>Queremos ouvir como foi.</h2>
+            <p>Conte-nos sobre a sua visita. A sua opinião ajuda o Grupo Pátio a cuidar melhor de cada espaço e serviço.</p>
+            <p class="feedback-privacy">
+              O questionário não pede o seu nome nem contacto. As respostas seguem para o WhatsApp oficial do Grupo Pátio, no número +244 941 180 424, e ficam acessíveis às pessoas autorizadas a gerir essa conta. O site não guarda as respostas.
+            </p>
+          </div>
+          <div>
+            <form class="feedback-form" data-feedback-form>
+              <fieldset class="feedback-group">
+                <legend>A sua visita</legend>
+                <div class="feedback-fields">
+                  <div class="field full">
+                    <label for="feedback-space">Qual foi o espaço ou serviço que visitou?</label>
+                    <select id="feedback-space" name="space" required>
+                      <option value="" selected disabled>Selecione uma opção</option>
+                      <option>Pátio Morro Bento</option>
+                      <option>Pátio Mutamba</option>
+                      <option>Roots by Pátio Luanda</option>
+                      <option>Pátio Aeroporto</option>
+                      <option>Pastelaria Pátio</option>
+                      <option>Catering</option>
+                      <option>Evento ou salão</option>
+                      <option>Outro serviço do Grupo Pátio</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="feedback-group">
+                <legend>Como avalia?</legend>
+                <div class="feedback-fields">
+                  <div class="field">
+                    <label for="feedback-service">Atendimento</label>
+                    <select id="feedback-service" name="service_rating" required>
+                      <option value="" selected disabled>Escolha de 1 a 5</option>
+                      <option value="1">1 · Muito fraco</option>
+                      <option value="2">2 · Fraco</option>
+                      <option value="3">3 · Satisfatório</option>
+                      <option value="4">4 · Muito bom</option>
+                      <option value="5">5 · Excelente</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="feedback-food">Comida</label>
+                    <select id="feedback-food" name="food_rating" required>
+                      <option value="" selected disabled>Escolha de 1 a 5</option>
+                      <option value="1">1 · Muito fraca</option>
+                      <option value="2">2 · Fraca</option>
+                      <option value="3">3 · Satisfatória</option>
+                      <option value="4">4 · Muito boa</option>
+                      <option value="5">5 · Excelente</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <label for="feedback-atmosphere">Ambiente</label>
+                    <select id="feedback-atmosphere" name="atmosphere_rating" required>
+                      <option value="" selected disabled>Escolha de 1 a 5</option>
+                      <option value="1">1 · Muito fraco</option>
+                      <option value="2">2 · Fraco</option>
+                      <option value="3">3 · Satisfatório</option>
+                      <option value="4">4 · Muito bom</option>
+                      <option value="5">5 · Excelente</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="feedback-group">
+                <legend>Conte-nos mais</legend>
+                <div class="feedback-fields">
+                  <div class="field full">
+                    <label for="feedback-improvements">O que gostaria de ver melhorado?</label>
+                    <textarea id="feedback-improvements" name="improvements" rows="4" placeholder="A sua resposta é opcional"></textarea>
+                  </div>
+                  <div class="field full">
+                    <label for="feedback-suggestion">Tem alguma sugestão adicional?</label>
+                    <textarea id="feedback-suggestion" name="suggestion" rows="4" placeholder="A sua resposta é opcional"></textarea>
+                  </div>
+                </div>
+              </fieldset>
+              <p class="feedback-consent">Ao continuar, o WhatsApp será aberto com as suas respostas. Reveja a mensagem e toque em Enviar para a partilhar.</p>
+              <button class="btn" type="submit">Continuar para o WhatsApp</button>
+            </form>
+            <div class="form-status feedback-status hidden" data-feedback-status role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer data-footer></footer>
+    <script src="js/config.js?v=20261009-airport" defer></script>
+    <script src="js/main.js?v=20261009-airport" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/forms.js" defer></script>
+    <script src="js/animations.js" defer></script>
+  </body>
+</html>

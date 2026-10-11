@@ -45,6 +45,7 @@ Data: ${data.date}
 Convidados: ${data.guests}
 Espaço: ${data.space}
 Contacto: ${data.contact}
+Email: ${data.email || '—'}
 
 Observações:
 ${data.notes || '—'}`;
@@ -73,9 +74,19 @@ if (eventForm) {
 		const data = formValues(eventForm);
 		const message = eventoMessage(data);
 		const status = document.querySelector('[data-event-status]');
+		const link = document.createElement('a');
+		link.className = 'btn';
+		link.href = patioWhatsAppUrl(message);
+		link.target = '_blank';
+		link.rel = 'noopener';
+		link.textContent = 'Enviar pedido pelo WhatsApp';
+		status.replaceChildren(
+			Object.assign(document.createElement('strong'), { textContent: 'Pedido preparado.' }),
+			document.createTextNode(' No WhatsApp, reveja a mensagem e toque em Enviar para a equipa comercial receber o seu pedido.'),
+			link,
+		);
 		status.classList.remove('hidden');
-		status.innerHTML = `<strong>Proposta pedida.</strong><p>Vamos receber o seu pedido de ${data.type} para ${data.space}.</p><a class="btn" href="${patioWhatsAppUrl(message)}" target="_blank" rel="noopener">Continuar no WhatsApp</a>`;
-		window.open(patioWhatsAppUrl(message), '_blank', 'noopener');
+		window.open(link.href, '_blank', 'noopener');
 	});
 }
 
@@ -89,9 +100,44 @@ if (contactForm) {
 
 Nome: ${data.name}
 Contacto: ${data.phone}
+E-mail: ${data.email || '—'}
 Assunto: ${data.subject}
 Mensagem: ${data.message}`;
-		document.querySelector('[data-contact-status]').classList.remove('hidden');
-		window.open(patioWhatsAppUrl(message), '_blank', 'noopener');
+		const status = document.querySelector('[data-contact-status]');
+		const link = document.createElement('a');
+		link.className = 'btn';
+		link.href = patioWhatsAppUrl(message);
+		link.target = '_blank';
+		link.rel = 'noopener';
+		link.textContent = 'Abrir WhatsApp novamente';
+		status.replaceChildren(
+			document.createTextNode('A mensagem está pronta. No WhatsApp, toque em Enviar para a equipa a receber. '),
+			link,
+		);
+		status.classList.remove('hidden');
+		window.open(link.href, '_blank', 'noopener');
+	});
+}
+
+const feedbackForm = document.querySelector('[data-feedback-form]');
+if (feedbackForm) {
+	feedbackForm.addEventListener('submit', (event) => {
+		event.preventDefault();
+		if (!validateForm(feedbackForm)) return;
+		const data = formValues(feedbackForm);
+		const message = `Olá, Grupo Pátio. Gostaria de partilhar a minha experiência.\n\nEspaço ou serviço: ${data.space}\nAtendimento: ${data.service_rating}/5\nComida: ${data.food_rating}/5\nAmbiente: ${data.atmosphere_rating}/5\n\nO que gostaria de ver melhorado?\n${data.improvements || 'Sem resposta'}\n\nSugestão adicional\n${data.suggestion || 'Sem resposta'}`;
+		const status = document.querySelector('[data-feedback-status]');
+		const link = document.createElement('a');
+		link.className = 'text-link';
+		link.href = patioWhatsAppUrl(message);
+		link.target = '_blank';
+		link.rel = 'noopener';
+		link.textContent = 'Abrir WhatsApp novamente';
+		status.replaceChildren(
+			document.createTextNode('As suas respostas estão prontas. No WhatsApp, toque em Enviar para partilhá-las com o Grupo Pátio. '),
+			link,
+		);
+		status.classList.remove('hidden');
+		window.open(link.href, '_blank', 'noopener');
 	});
 }

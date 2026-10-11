@@ -35,6 +35,14 @@
 			"capacity": "Doçaria e salgados",
 			"image": "assets/images/prato6.jpg",
 			"facts": ["Doce", "Salgados", "Produção própria"]
+		},
+		{
+			"name": "Pátio Aeroporto",
+			"href": "espacos.html#aeroporto",
+			"description": "Mais um espaço do Grupo Pátio em Luanda, na zona do Aeroporto.",
+			"location": "Aeroporto, Luanda",
+			"capacity": "Contacte a equipa",
+			"facts": ["Pátio Luanda", "Aeroporto"]
 		}
 	]
 }
