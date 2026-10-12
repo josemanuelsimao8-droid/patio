@@ -7,8 +7,6 @@ const PATIO = {
 	hours: 'Terça a domingo · 12h — 23h',
 	instagram: 'https://www.instagram.com/',
 	facebook: 'https://www.facebook.com/',
-	youtube: 'https://www.youtube.com/',
-	linkedin: 'https://www.linkedin.com/',
 	spaces: [
 		{ id: 'morrobento', name: 'Pátio Morro Bento', short: 'Morro Bento', href: 'morrobento.html' },
 		{ id: 'pastelaria', name: 'Pastelaria Pátio', short: 'Pastelaria', href: 'espacos.html#pastelaria' },

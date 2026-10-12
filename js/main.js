@@ -94,8 +94,6 @@ if (footer) {
 						<div class="socials">
 							<a href="${PATIO.instagram}" aria-label="Instagram">Instagram</a>
 							<a href="${PATIO.facebook}" aria-label="Facebook">Facebook</a>
-							<a href="${PATIO.youtube}" aria-label="YouTube">YouTube</a>
-							<a href="${PATIO.linkedin}" aria-label="LinkedIn">LinkedIn</a>
 						</div>
 					</div>
 					<div>
@@ -207,7 +205,7 @@ if (!document.getElementById('restaurant-schema')) {
 			opens: '12:00',
 			closes: '23:00',
 		},
-		sameAs: [PATIO.instagram, PATIO.facebook, PATIO.youtube, PATIO.linkedin],
+		sameAs: [PATIO.instagram, PATIO.facebook],
 	};
 	const tag = document.createElement('script');
 	tag.type = 'application/ld+json';
