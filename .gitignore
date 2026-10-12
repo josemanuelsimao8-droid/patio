@@ -1,0 +1,22 @@
+
+# Vídeos originais pesados, mantidos localmente
+/patio murro bento/Film institucional Pátio Luanda (Morro bento).mp4
+/patio mutamba/Film Patio Foods Mutamba.mp4
+/patio mutamba/Vídeo institucional Mutamba.mp4
+
+# Originais MOV pesados, mantidos localmente
+/patio murro bento/*.mov
+/patio mutamba/*.mov
+
+# Fotografias e vídeos originais, mantidos localmente
+/patio murro bento/
+/patio mutamba/
+
+# Metadados locais e vídeos não utilizados pelo site
+.DS_Store
+/assets/videos/*-hero.mp4
+
+# Vídeos originais pesados
+/patio murro bento/Film institucional Pátio Luanda (Morro bento).mp4
+/patio mutamba/Film Patio Foods Mutamba.mp4
+/patio mutamba/Vídeo institucional Mutamba.mp4

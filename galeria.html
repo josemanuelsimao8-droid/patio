@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore as imagens dos espaços e da cozinha do Grupo Pátio em Luanda."
+    />
+    <meta property="og:title" content="Galeria | Pátio Luanda" />
+    <meta
+      property="og:image"
+      content="assets/images/morro-bento/1P2A0114 - Cópia.jpg"
+    />
+    <title>Galeria | Pátio Luanda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=20261011-gallery" />
+    <link rel="stylesheet" href="css/responsive.css?v=20261011-gallery" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+    <header class="site-header" data-header></header>
+    <main id="conteudo">
+      <section
+        class="gallery-hero"
+        style="
+          background-image:
+            linear-gradient(
+              90deg,
+              rgba(35, 22, 18, 0.78),
+              rgba(35, 22, 18, 0.12)
+            ),
+            url(&quot;assets/images/morro-bento/1P2A0114%20-%20C%C3%B3pia.jpg&quot;);
+        "
+      >
+        <div class="wrap reveal">
+          <p class="eyebrow">Pátio Luanda · Luanda</p>
+          <h1>Espaços para viver.<br />Momentos para guardar.</h1>
+          <p>Uma visita visual aos espaços, às mesas e aos sabores do Pátio.</p>
+          <a class="btn" href="#galeria-espacos">Explorar a galeria</a>
+        </div>
+      </section>
+      <section class="gallery-page-section" id="galeria-espacos">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div>
+              <p class="eyebrow">Galeria</p>
+              <h2>Escolha um espaço.</h2>
+            </div>
+            <p class="lede">
+              Explore os ambientes e a cozinha de cada lugar Pátio.
+            </p>
+          </div>
+          <nav
+            class="gallery-space-nav"
+            data-gallery-space-nav
+            aria-label="Espaços na galeria"
+          ></nav>
+          <div class="gallery-space-list" data-gallery-page aria-live="polite">
+            <p class="form-status">A carregar as fotografias...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <dialog
+      class="gallery-lightbox"
+      data-gallery-lightbox
+      aria-label="Visualização de fotografia"
+    >
+      <button
+        class="gallery-lightbox-close"
+        type="button"
+        data-lightbox-close
+        aria-label="Fechar fotografia"
+      >
+        ×
+      </button>
+      <button
+        class="gallery-lightbox-nav gallery-lightbox-prev"
+        type="button"
+        data-lightbox-prev
+        aria-label="Fotografia anterior"
+      >
+        ←
+      </button>
+      <img src="" alt="" data-lightbox-image />
+      <button
+        class="gallery-lightbox-nav gallery-lightbox-next"
+        type="button"
+        data-lightbox-next
+        aria-label="Fotografia seguinte"
+      >
+        →
+      </button>
+      <p data-lightbox-caption></p>
+    </dialog>
+    <footer data-footer></footer>
+    <script src="js/config.js?v=20261011-gallery" defer></script>
+    <script src="js/main.js?v=20261011-gallery" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/ui.js?v=20261011-gallery" defer></script>
+    <script src="js/animations.js" defer></script>
+  </body>
+</html>

@@ -5,7 +5,7 @@ const NAV = [
 		items: [
 			['A Nossa História', 'descobrir.html#historia'],
 			['A Nossa Cozinha', 'descobrir.html#cozinha'],
-			['Galeria', 'descobrir.html'],
+			['Galeria', 'galeria.html'],
 			['Experiência Pátio', 'descobrir.html#experiencia'],
 		],
 	},

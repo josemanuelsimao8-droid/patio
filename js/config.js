@@ -20,7 +20,7 @@ const PATIO = {
 		morrobento: {
 			name: 'Pátio Morro Bento',
 			address: 'Av. Pedro de Castro Van-Dúnem Loy, Morro Bento, Luanda',
-			image: 'assets/images/7.jpeg',
+			image: 'assets/images/morro-bento/1P2A0114 - Cópia.jpg',
 			map: 'https://www.google.com/maps?q=Morro+Bento+Luanda&output=embed',
 			mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Morro+Bento+Luanda',
 		},
@@ -34,7 +34,7 @@ const PATIO = {
 		mutamba: {
 			name: 'Pátio Mutamba',
 			address: 'Mutamba, Luanda',
-			image: 'assets/images/9.jpg',
+			image: 'assets/images/mutamba/1P2A3031.jpg',
 			map: 'https://www.google.com/maps?q=Mutamba+Luanda&output=embed',
 			mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mutamba+Luanda',
 		},

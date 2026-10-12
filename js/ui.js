@@ -111,6 +111,7 @@ if (menuRoot || menuPreview) {
 					button.setAttribute('aria-pressed', String(active));
 				});
 			};
+
 			const initialView = location.hash.slice(1);
 			render(menuViews.some((view) => view.id === initialView) ? initialView : menuViews[0].id);
 			document.querySelectorAll('[data-menu-category]').forEach((button) => {
@@ -125,6 +126,127 @@ if (menuRoot || menuPreview) {
 		if (menuRoot) menuRoot.innerHTML = '<p>A carta está temporariamente indisponível. Fale connosco para conhecer os pratos do dia.</p>';
 		console.error(error);
 	});
+}
+
+const galleryPage = document.querySelector('[data-gallery-page]');
+if (galleryPage) {
+	const nav = document.querySelector('[data-gallery-space-nav]');
+	const lightbox = document.querySelector('[data-gallery-lightbox]');
+	const lightboxImage = lightbox.querySelector('[data-lightbox-image]');
+	const lightboxCaption = lightbox.querySelector('[data-lightbox-caption]');
+	let activeImages = [];
+	let activeIndex = 0;
+
+	const showLightboxImage = (index) => {
+		activeIndex = (index + activeImages.length) % activeImages.length;
+		const selected = activeImages[activeIndex];
+		lightboxImage.src = selected.src;
+		lightboxImage.alt = selected.alt;
+		lightboxCaption.textContent = selected.caption;
+	};
+
+	loadJson('data/spaces.json?v=20261011-gallery').then(({ spaces }) => {
+		const sections = spaces.map((space) => {
+			const images = [
+				...(space.gallery || []).map((src) => ({ src, collection: 'Espaço' })),
+				...(space.foodGallery || []).map((src) => ({ src, collection: 'À mesa' })),
+				...(!space.gallery?.length && !space.foodGallery?.length && space.image ? [{ src: space.image, collection: 'Espaço' }] : []),
+			];
+			const id = space.id || space.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+			return { ...space, id, images };
+		});
+
+		nav.innerHTML = sections.map((space) => `<a href="#galeria-${space.id}">${space.name}</a>`).join('');
+		galleryPage.innerHTML = sections.map((space) => `
+			<section class="gallery-space" id="galeria-${space.id}" aria-labelledby="titulo-${space.id}">
+				<header class="gallery-space-heading">
+					<div><p class="eyebrow">${space.location || 'Luanda'}</p><h2 id="titulo-${space.id}">${space.name}</h2></div>
+					<a class="text-link" href="${space.href}">Conhecer espaço</a>
+				</header>
+				${space.images.length ? `
+					${space.gallery?.length ? `<div class="gallery-collection-heading"><h3>O espaço</h3><span>${space.gallery.length} fotografias</span></div><div class="gallery-photo-grid">${space.gallery.map((src, index) => `<button class="gallery-photo" type="button" data-gallery-image data-src="${src}" data-caption="${space.name} · O espaço · ${index + 1}" aria-label="Ver fotografia ${index + 1} de ${space.name}"><img src="${src}" alt="${space.name} · espaço" loading="lazy" width="1200" height="800"></button>`).join('')}</div>` : ''}
+					${space.foodGallery?.length ? `<div class="gallery-collection-heading"><h3>À mesa</h3><span>${space.foodGallery.length} fotografias</span></div><div class="gallery-photo-grid gallery-food-grid">${space.foodGallery.map((src, index) => `<button class="gallery-photo" type="button" data-gallery-image data-src="${src}" data-caption="${space.name} · À mesa · ${index + 1}" aria-label="Ver fotografia de prato ${index + 1} de ${space.name}"><img src="${src}" alt="Prato do ${space.name}" loading="lazy" width="1200" height="800"></button>`).join('')}</div>` : ''}
+					${!space.gallery?.length && !space.foodGallery?.length ? `<div class="gallery-photo-grid"><button class="gallery-photo" type="button" data-gallery-image data-src="${space.image}" data-caption="${space.name}" aria-label="Ver fotografia de ${space.name}"><img src="${space.image}" alt="${space.name}" loading="lazy" width="1200" height="800"></button></div>` : ''}` : `<div class="gallery-unavailable"><p>As fotografias deste espaço serão acrescentadas em breve.</p></div>`}
+			</section>`).join('');
+
+		activeImages = [...galleryPage.querySelectorAll('[data-gallery-image]')].map((button) => ({
+			src: button.dataset.src,
+			alt: button.querySelector('img').alt,
+			caption: button.dataset.caption,
+		}));
+
+		galleryPage.querySelectorAll('[data-gallery-image]').forEach((button, index) => {
+			button.addEventListener('click', () => {
+				showLightboxImage(index);
+				lightbox.showModal();
+			});
+		});
+	}).catch((error) => {
+		galleryPage.innerHTML = '<p class="form-status">Não foi possível carregar a galeria. Tente novamente mais tarde.</p>';
+		console.error(error);
+	});
+
+	lightbox.querySelector('[data-lightbox-close]').addEventListener('click', () => lightbox.close());
+	lightbox.querySelector('[data-lightbox-prev]').addEventListener('click', () => showLightboxImage(activeIndex - 1));
+	lightbox.querySelector('[data-lightbox-next]').addEventListener('click', () => showLightboxImage(activeIndex + 1));
+	lightbox.addEventListener('click', (event) => {
+		if (event.target === lightbox) lightbox.close();
+	});
+	document.addEventListener('keydown', (event) => {
+		if (!lightbox.open) return;
+		if (event.key === 'ArrowLeft') showLightboxImage(activeIndex - 1);
+		if (event.key === 'ArrowRight') showLightboxImage(activeIndex + 1);
+	});
+}
+
+const spaceGalleries = [...document.querySelectorAll('[data-space-gallery]')];
+if (spaceGalleries.length) {
+	loadJson('data/spaces.json?v=20261011-space-galleries').then((data) => {
+		spaceGalleries.forEach((gallery) => {
+			const space = data.spaces.find((item) => item.id === gallery.dataset.spaceGallery);
+			const images = gallery.dataset.galleryType === 'food' ? space.foodGallery : space.gallery;
+			gallery.innerHTML = images.map((image, index) => `
+				<figure class="space-photo-gallery-item">
+					<img src="${image}" alt="${space.name}, fotografia ${index + 1}" loading="lazy" width="1800" height="2700">
+				</figure>`).join('');
+		});
+	}).catch((error) => {
+		spaceGalleries.forEach((gallery) => {
+			gallery.innerHTML = '<p class="form-status">A galeria está temporariamente indisponível.</p>';
+		});
+		console.error(error);
+	});
+}
+
+const spaceHeroVideo = document.querySelector('[data-space-hero-video]');
+if (spaceHeroVideo && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+	const videos = [
+		{
+			path: 'assets/videos/patio-morro-bento-3s.mp4',
+			name: 'Pátio Morro Bento',
+		},
+		{
+			path: 'assets/videos/patio-mutamba-3s.mp4',
+			name: 'Pátio Mutamba',
+		},
+		{
+			path: 'assets/videos/patio-mutamba-foods-3s.mp4',
+			name: 'Pátio Mutamba',
+		},
+	];
+	const caption = document.querySelector('[data-space-hero-caption]');
+	let previousIndex = -1;
+	const playRandomClip = () => {
+		let index = Math.floor(Math.random() * videos.length);
+		if (videos.length > 1 && index === previousIndex) index = (index + 1 + Math.floor(Math.random() * (videos.length - 1))) % videos.length;
+		previousIndex = index;
+		const selected = videos[index];
+		spaceHeroVideo.src = encodeURI(selected.path);
+		if (caption) caption.textContent = selected.name;
+		spaceHeroVideo.play().catch(() => {});
+	};
+	spaceHeroVideo.addEventListener('ended', playRandomClip);
+	playRandomClip();
 }
 
 const locationCards = document.querySelector('[data-location-cards]');
