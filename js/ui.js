@@ -58,7 +58,7 @@ if (quotes) {
 const menuRoot = document.querySelector('[data-menu-root]');
 const menuPreview = document.querySelector('[data-menu-preview]');
 if (menuRoot || menuPreview) {
-	loadJson('data/menu.json').then((data) => {
+	loadJson('data/menu.json?v=20261012-gastronomia').then((data) => {
 		if (menuPreview) {
 			const featured = data.categories.flatMap((cat) => cat.items.map((item) => ({ ...item, cat: cat.category, id: cat.id }))).slice(0, 4);
 			menuPreview.innerHTML = featured.map((item) => `

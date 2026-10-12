@@ -4,16 +4,16 @@
 			"id": "carnes",
 			"category": "Carnes",
 			"items": [
-				{ "name": "A Nossa Picanha", "description": "Picanha grelhada com azeite, alho e ervas frescas.", "price": "22 500 Kz", "image": "assets/images/prato8.jpg" },
-				{ "name": "Costela glaceada", "description": "Cozida lentamente, com toque cítrico e fumo suave.", "price": "19 800 Kz", "image": "assets/images/prato2.jpg" }
+				{ "name": "A Nossa Picanha", "description": "Picanha grelhada com azeite, alho e ervas frescas.", "price": "22 500 Kz", "image": "assets/images/morro-bento/pratos/1P2A0233.jpg" },
+				{ "name": "Costela glaceada", "description": "Cozida lentamente, com toque cítrico e fumo suave.", "price": "19 800 Kz", "image": "assets/images/morro-bento/pratos/1P2A0251.jpg" }
 			]
 		},
 		{
 			"id": "mar",
 			"category": "Do Mar",
 			"items": [
-				{ "name": "Polvo à Lagareiro", "description": "Polvo grelhado com pimentos, cebola e azeite aromático.", "price": "17 000 Kz", "image": "assets/images/prato5.jpeg" },
-				{ "name": "Peixe do dia, molho de ginguba", "description": "Fresco, com legumes da estação e ervas.", "price": "18 500 Kz", "image": "assets/images/prato3.jpg" },
+				{ "name": "Polvo à Lagareiro", "description": "Polvo grelhado com pimentos, cebola e azeite aromático.", "price": "17 000 Kz", "image": "assets/images/morro-bento/pratos/1P2A0205.jpg" },
+				{ "name": "Peixe do dia, molho de ginguba", "description": "Fresco, com legumes da estação e ervas.", "price": "18 500 Kz", "image": "assets/images/morro-bento/pratos/1P2A0138.jpg" },
 				{ "name": "Camarão ao Alho", "description": "Camarões salteados com alho, ervas e toque de limão.", "price": "14 500 Kz", "image": "assets/images/prato4.jpg" }
 			]
 		},
