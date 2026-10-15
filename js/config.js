@@ -46,6 +46,7 @@ const PATIO = {
 		aeroporto: {
 			name: 'Pátio Aeroporto',
 			address: 'Aeroporto, Luanda',
+			image: 'patio aeroporto/WhatsApp Image 2026-10-12 at 17.18.40.jpeg',
 			map: 'https://www.google.com/maps?q=Patio+Aeroporto+Luanda&output=embed',
 			mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Patio+Aeroporto+Luanda',
 		},
