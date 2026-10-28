@@ -58,16 +58,20 @@ if (quotes) {
 const menuRoot = document.querySelector('[data-menu-root]');
 const menuPreview = document.querySelector('[data-menu-preview]');
 if (menuRoot || menuPreview) {
-	loadJson('data/menu.json?v=20261012-gastronomia').then((data) => {
+	const escapeMenuText = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({
+		'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+	}[character]));
+	const formatMenuPrice = (value) => `${new Intl.NumberFormat('pt-PT').format(Number(value) || 0)} Kz`;
+	loadJson('/api/menu').then((data) => {
 		if (menuPreview) {
 			const featured = data.categories.flatMap((cat) => cat.items.map((item) => ({ ...item, cat: cat.category, id: cat.id }))).slice(0, 4);
 			menuPreview.innerHTML = featured.map((item) => `
 				<article class="dish-card reveal">
-					<img src="${item.image}" alt="${item.name}" loading="lazy" width="600" height="400">
-					<span class="eyebrow">${item.cat}</span>
-					<h3>${item.name}</h3>
-					<p>${item.description}</p>
-					<span class="price">${item.price}</span>
+					<img src="${escapeMenuText(item.image)}" alt="${escapeMenuText(item.name)}" loading="lazy" width="600" height="400">
+					<span class="eyebrow">${escapeMenuText(item.cat)}</span>
+					<h3>${escapeMenuText(item.name)}</h3>
+					<p>${escapeMenuText(item.description)}</p>
+					<span class="price">${formatMenuPrice(item.price)}</span>
 				</article>`).join('');
 			document.querySelectorAll('[data-menu-preview] .reveal').forEach((el) => el.classList.add('visible'));
 		}
@@ -82,9 +86,9 @@ if (menuRoot || menuPreview) {
 			];
 			const itemMarkup = (item) => `
 				<article class="menu-item">
-					<img src="${item.image}" alt="${item.name}" loading="lazy" width="240" height="180">
-					<div><h3>${item.name}</h3><p>${item.description}</p></div>
-					<span class="price">${item.price}</span>
+					<img src="${escapeMenuText(item.image)}" alt="${escapeMenuText(item.name)}" loading="lazy" width="240" height="180">
+					<div><h3>${escapeMenuText(item.name)}</h3><p>${escapeMenuText(item.description)}</p></div>
+					<span class="price">${formatMenuPrice(item.price)}</span>
 				</article>`;
 			const render = (id) => {
 				const view = menuViews.find((entry) => entry.id === id) || menuViews[0];
@@ -96,7 +100,7 @@ if (menuRoot || menuPreview) {
 					</div>`
 					: categories.map((category) => `
 						<section class="menu-subcategory">
-							${view.id === 'menu-roots' ? `<h3>${category.category}</h3>` : ''}
+							${view.id === 'menu-roots' ? `<h3>${escapeMenuText(category.category)}</h3>` : ''}
 							${category.items.map(itemMarkup).join('')}
 						</section>`).join('');
 				const sushiLinks = view.id === 'sushi' ? `

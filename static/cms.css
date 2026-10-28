@@ -1,0 +1,6 @@
+.cms-layout-copy-left > .wrap.split { direction: rtl; }
+.cms-layout-copy-left > .wrap.split > * { direction: ltr; }
+.cms-layout-copy-right > .wrap.split { direction: ltr; }
+.cms-layout-copy-right > .wrap.split > :first-child { order: 2; }
+.cms-layout-copy-right > .wrap.split > :last-child { order: 1; }
+.cms-layout-full > .wrap { width: min(100% - 32px, 1600px); max-width: 1600px; }

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <title>Administração | Pátio Luanda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+  <script src="{{ url_for('static', filename='admin.js') }}" defer></script>
+</head>
+<body class="admin-app" data-csrf-token="{{ csrf_token }}">
+  <aside class="admin-sidebar">
+    <a class="admin-brand" href="/" aria-label="Pátio Luanda, ver site">
+      <img src="/assets/logo-white.png" alt="Pátio Luanda" width="148" height="44">
+    </a>
+    <p class="sidebar-label">GESTÃO DO SITE</p>
+    <nav class="admin-nav" aria-label="Administração">
+      <button class="admin-nav-link is-active" type="button" data-panel-target="editor"><span class="nav-symbol">▧</span> Páginas</button>
+      <button class="admin-nav-link" type="button" data-panel-target="identity"><span class="nav-symbol">◈</span> Identidade e contactos</button>
+      <button class="admin-nav-link" type="button" data-panel-target="menu">Gestão do Menu</button>
+      <button class="admin-nav-link" type="button" data-panel-target="feedback">Fala Comigo</button>
+      <button class="admin-nav-link" type="button" data-panel-target="reservations">Reservas</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <a class="site-link" href="/" target="_blank" rel="noopener"><span>↗</span> Abrir o site</a>
+      <form action="{{ url_for('logout') }}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <button class="logout-button" type="submit"><span>↪</span> Terminar sessão</button>
+      </form>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <div><p class="eyebrow">PAINEL DE CONTROLO</p><h1 data-view-title>Editar páginas</h1></div>
+      <div class="topbar-actions"><span class="connection-status"><i></i> Conteúdo ligado</span><a href="/" target="_blank" rel="noopener" class="preview-site">Ver site ↗</a></div>
+    </header>
+
+    <section class="admin-panel page-panel is-active" data-panel="editor">
+      <div class="page-toolbar">
+        <div class="page-picker"><label for="page-select">Página</label><select id="page-select"></select></div>
+        <div class="toolbar-actions"><span class="save-state" data-save-state>Guardado automaticamente</span><button class="button-primary" type="button" data-save-page>Guardar agora</button></div>
+      </div>
+      <div class="editor-layout">
+        <section class="editor-column" aria-label="Conteúdo da página">
+          <div class="editor-heading"><div><p class="eyebrow">ESTRUTURA</p><h2>Secções da página</h2></div><span class="section-count" data-section-count>—</span></div>
+          <p class="editor-hint">Cada secção mostra os textos, links, imagens e fundos editáveis. As alterações aparecem logo na pré-visualização e são guardadas automaticamente na base de dados.</p>
+          <div class="section-editor-list" data-section-editor-list><div class="editor-loading">A preparar o editor…</div></div>
+        </section>
+        <section class="preview-column" aria-label="Pré-visualização do site">
+          <div class="preview-toolbar"><span><i></i> PRÉ-VISUALIZAÇÃO</span><button type="button" data-refresh-preview aria-label="Atualizar pré-visualização" title="Atualizar pré-visualização">↻</button></div>
+          <iframe class="site-preview" title="Pré-visualização da página do site" data-site-preview></iframe>
+        </section>
+      </div>
+    </section>
+
+    <section class="admin-panel identity-panel" data-panel="identity" hidden>
+      <div class="identity-intro"><p class="eyebrow">CONFIGURAÇÃO GLOBAL</p><h2>Identidade e contactos</h2><p>Estas informações são partilhadas entre as páginas do site.</p></div>
+      <form class="identity-form" data-identity-form>
+        <section class="settings-section">
+          <div class="settings-section-heading"><span class="settings-index">01</span><div><h3>Marca e página inicial</h3><p>Nome, títulos e logótipo apresentados no site.</p></div></div>
+          <div class="settings-fields">
+            <label class="field-label">Nome da marca<input name="name" maxlength="120" required></label>
+            <label class="field-label">Título do site<input name="title" maxlength="180" required></label>
+            <label class="field-label field-wide">Título principal<input name="heroTitle" maxlength="180"></label>
+            <label class="field-label field-wide">Subtítulo principal<textarea name="heroSubtitle" rows="3" maxlength="500"></textarea></label>
+            <div class="field-label field-wide">Logótipo
+              <div class="logo-editor"><div class="logo-preview"><img data-logo-preview alt="Pré-visualização do logótipo"></div><div><input name="logo" type="url" aria-label="Endereço do logótipo"><label class="upload-button">Carregar imagem<input type="file" accept="image/png,image/jpeg,image/webp,image/gif" data-logo-upload></label><small>JPG, PNG, GIF ou WebP · máximo 8 MB</small></div></div>
+            </div>
+          </div>
+        </section>
+        <section class="settings-section">
+          <div class="settings-section-heading"><span class="settings-index">02</span><div><h3>Contactos e redes</h3><p>Dados usados no rodapé e nos atalhos de contacto.</p></div></div>
+          <div class="settings-fields">
+            <label class="field-label">Telefone<input name="phone" maxlength="50"></label>
+            <label class="field-label">E-mail<input name="email" type="email" maxlength="180"></label>
+            <label class="field-label field-wide">Horário geral<input name="hours" maxlength="180"></label>
+            <label class="field-label">Instagram<input name="instagram" type="url" maxlength="300"></label>
+            <label class="field-label">Facebook<input name="facebook" type="url" maxlength="300"></label>
+          </div>
+        </section>
+        <div class="identity-actions"><span class="save-state" data-identity-state>Alterações guardadas</span><button class="button-primary" type="submit">Guardar identidade</button></div>
+      </form>
+    </section>
+
+    <section class="admin-panel menu-panel" data-panel="menu" hidden>
+      <div class="management-heading">
+        <div><h2>Gestão do Menu</h2><p>Todos os pratos e secções da carta do site. Edite a fotografia, legenda e preço de cada prato.</p></div>
+        <button class="admin-button" type="button" data-menu-refresh>Atualizar lista</button>
+      </div>
+      <form class="menu-editor-form" data-menu-form>
+        <h3 data-menu-form-title>Novo prato</h3>
+        <div class="management-fields">
+          <label>Nome<input name="name" maxlength="200" required></label>
+          <label>Secção<select name="category" required><option value="">A carregar…</option></select></label>
+          <label>Nova secção (opcional)<input name="new_category" maxlength="150"></label>
+          <label>Preço em Kz<input name="price" type="number" min="0.01" step="0.01" required></label>
+          <label class="field-wide">Legenda / descrição<textarea name="description" rows="2" maxlength="10000"></textarea></label>
+          <label class="field-wide">Ingredientes<textarea name="ingredients" rows="2" maxlength="5000"></textarea></label>
+          <label>Fotografia<input name="image" type="file" accept="image/jpeg,image/png,image/gif,image/webp" data-menu-image></label>
+          <label class="menu-availability"><input name="available" type="checkbox" checked> Disponível</label>
+          <img class="menu-image-preview" data-menu-image-preview alt="Pré-visualização da fotografia do prato" hidden>
+        </div>
+        <div class="management-form-actions">
+          <button class="button-primary" type="submit" data-menu-save>Adicionar prato</button>
+          <button class="admin-button" type="button" data-menu-cancel hidden>Cancelar edição</button>
+          <span class="management-feedback" data-menu-feedback aria-live="polite"></span>
+        </div>
+      </form>
+      <div class="management-filters">
+        <label>Pesquisar<input type="search" data-menu-search placeholder="Nome ou descrição"></label>
+        <label>Secção<select data-menu-category-filter><option value="">Todas</option></select></label>
+        <label>Disponibilidade<select data-menu-availability-filter><option value="">Todas</option><option value="true">Disponíveis</option><option value="false">Indisponíveis</option></select></label>
+      </div>
+      <div class="management-table-wrap">
+        <table class="management-table menu-table">
+          <thead><tr><th>Fotografia</th><th>Prato / legenda</th><th>Preço</th><th>Secção</th><th>Disponibilidade</th><th>Ações</th></tr></thead>
+          <tbody data-menu-list><tr><td colspan="6">Abre a secção para carregar os pratos.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="admin-panel feedback-panel" data-panel="feedback" hidden>
+      <div class="management-heading">
+        <div><h2>Fala Comigo</h2><p>Mensagens recebidas através do site.</p></div>
+        <button class="admin-button" type="button" data-feedback-refresh>Atualizar lista</button>
+      </div>
+      <div class="feedback-counts" aria-live="polite">
+        <p><strong data-feedback-new-count>0</strong><span>Novas mensagens</span></p>
+        <p><strong data-feedback-complaint-count>0</strong><span>Reclamações pendentes</span></p>
+      </div>
+      <div class="management-filters feedback-filters">
+        <label>Pesquisar<input type="search" data-feedback-search placeholder="Nome, assunto ou mensagem"></label>
+        <label>Tipo<select data-feedback-type><option value="">Todos</option><option value="complaint">Reclamação</option><option value="suggestion">Sugestão</option><option value="praise">Elogio</option><option value="other">Outro contacto</option></select></label>
+        <label>Estado<select data-feedback-status-filter><option value="">Todos</option><option value="new">Nova</option><option value="reviewing">Em análise</option><option value="resolved">Resolvida</option></select></label>
+        <label>Espaço<select data-feedback-space><option value="">Todos</option></select></label>
+        <label>De<input type="date" data-feedback-date-from></label>
+        <label>Até<input type="date" data-feedback-date-to></label>
+      </div>
+      <p class="management-feedback" data-feedback-feedback aria-live="polite">Abre esta secção para carregar as mensagens.</p>
+      <div class="feedback-list" data-feedback-list><p>As mensagens serão carregadas ao abrir esta secção.</p></div>
+    </section>
+
+    <section class="admin-panel reservations-panel" data-panel="reservations" hidden>
+      <div class="reservations-heading">
+        <div>
+          <h2>Pedidos de reserva</h2>
+          <p>Consulta os pedidos recebidos e atualiza o seu estado.</p>
+        </div>
+        <button class="admin-button" type="button" data-reservations-refresh>
+          Atualizar lista
+        </button>
+      </div>
+      <p class="reservations-feedback" data-reservations-feedback aria-live="polite">
+        Abre esta secção para consultar os pedidos.
+      </p>
+      <div class="reservations-table-wrap">
+        <table class="reservations-table">
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Contacto</th>
+              <th>Data e hora</th>
+              <th>Espaço e tipo</th>
+              <th>Pessoas</th>
+              <th>Estado</th>
+              <th>Ação</th>
+              <th>Observações</th>
+            </tr>
+          </thead>
+          <tbody data-reservations-list>
+            <tr><td colspan="8">Abre a secção para carregar os pedidos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+</body>
+</html>

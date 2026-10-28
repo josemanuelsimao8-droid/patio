@@ -34,8 +34,8 @@
       </section>
       <section class="wrap form reveal">
         <p class="form-note">
-          Este pedido será validado no seu navegador e preparado para integração
-          posterior. A disponibilidade só será confirmada pela equipa.
+          O pedido será registado para análise. A equipa do Pátio entrará em contacto
+          para confirmar a disponibilidade.
         </p>
         <form class="form-grid" data-reservation-form>
           <div class="field">
@@ -48,9 +48,11 @@
           <div class="field">
             <label for="space">Espaço</label
             ><select id="space" name="space">
-              <option>A sala</option>
-              <option>O pátio</option>
-              <option>O bar</option>
+              <option value="Pátio Morro Bento">Pátio Morro Bento</option>
+              <option value="Pátio Mutamba">Pátio Mutamba</option>
+              <option value="Roots by Pátio Luanda">Roots by Pátio Luanda</option>
+              <option value="Pátio Aeroporto">Pátio Aeroporto</option>
+              <option value="A definir com a equipa">A definir com a equipa</option>
             </select>
           </div>
           <div class="field">
@@ -114,10 +116,7 @@
             <button class="button" type="submit">Enviar pedido</button>
           </div>
         </form>
-        <p class="form-status hidden" data-form-status role="status">
-          Recebemos o seu pedido neste dispositivo. A equipa do Pátio deverá
-          confirmar a disponibilidade por telefone ou email.
-        </p>
+        <p class="form-status hidden" data-form-status role="status" aria-live="polite"></p>
       </section>
     </main>
     <footer data-footer></footer>

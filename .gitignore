@@ -20,3 +20,14 @@
 /patio murro bento/Film institucional Pátio Luanda (Morro bento).mp4
 /patio mutamba/Film Patio Foods Mutamba.mp4
 /patio mutamba/Vídeo institucional Mutamba.mp4
+
+# Configuração e ambiente local
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.vscode/
+assets/uploads/
+*.sqlite3

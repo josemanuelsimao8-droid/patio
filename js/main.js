@@ -66,7 +66,7 @@ if (header) {
 			</a>
 			<ul class="nav-links" id="main-nav">${navMarkup()}</ul>
 			<div class="nav-actions">
-				<button class="nav-cta" type="button" data-open-reserva>Reservar mesa</button>
+				<a class="nav-cta" href="reservas.html">Reservar mesa</a>
 				<div class="lang">
 					<button class="lang-btn" type="button" aria-expanded="false" aria-haspopup="listbox">PT ${chevron()}</button>
 					<div class="lang-menu" role="listbox">
@@ -106,7 +106,7 @@ if (footer) {
 					</div>
 					<div>
 						<h4>Reservar</h4>
-						<button class="text-link" type="button" data-open-reserva>Reservar mesa</button>
+						<a class="text-link" href="reservas.html">Reservar mesa</a>
 						<a href="eventos.html">Pedir Proposta</a>
 						<a href="${patioWhatsAppUrl()}">WhatsApp</a>
 						<a href="tel:${PATIO.phone.replace(/\s/g, '')}">${PATIO.phone}</a>
@@ -133,50 +133,7 @@ document.body.insertAdjacentHTML('beforeend', `
 	<a class="wa" data-whatsapp-float href="${patioWhatsAppUrl(patioPageWhatsAppMessage())}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
 		<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 2.1 17.8L1 23l5.3-1.1A11 11 0 0 0 20.5 3.5Zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-3.2.7.7-3.1-.2-.3A9 9 0 1 1 12 20.5Zm5-6.7c-.3-.1-1.6-.8-1.8-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.1 8.1 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5.3-.4c.1-.2 0-.3 0-.5l-.9-2.1c-.2-.6-.5-.5-.6-.5h-.5c-.2 0-.5.1-.8.4s-1 1-1 2.4 1 2.8 1.2 3a10.5 10.5 0 0 0 4 3.5c.6.2 1 .2 1.4.1a3.2 3.2 0 0 0 2.1-1.5 2.6 2.6 0 0 0 .2-1.5c-.1-.1-.2-.2-.5-.3Z"/></svg>
 	</a>
-	<div class="modal hidden" data-reserva-modal role="dialog" aria-modal="true" aria-labelledby="reserva-title">
-		<div class="modal-card">
-			<button class="icon-btn" type="button" data-close-reserva aria-label="Fechar" style="float:right;color:var(--brown);border-color:var(--line)">×</button>
-			<p class="eyebrow">A sua mesa</p>
-			<h2 id="reserva-title">Há sempre uma mesa à sua espera.</h2>
-			<p class="lede">O pedido é validado neste dispositivo e enviado à equipa pelo WhatsApp. A disponibilidade só é confirmada pelo Pátio.</p>
-			<form class="form-grid" data-reservation-form style="margin-top:24px">
-				<div class="field"><label for="res-name">Nome</label><input id="res-name" name="name" required autocomplete="name"></div>
-				<div class="field"><label for="res-phone">Telefone</label><input id="res-phone" name="phone" type="tel" required autocomplete="tel"></div>
-				<div class="field"><label for="res-email">E-mail</label><input id="res-email" name="email" type="email" required autocomplete="email"></div>
-				<div class="field"><label for="res-people">Número de pessoas</label><input id="res-people" name="people" type="number" min="1" max="80" required></div>
-				<div class="field"><label for="res-date">Data</label><input id="res-date" name="date" type="date" required></div>
-				<div class="field"><label for="res-time">Hora</label><input id="res-time" name="time" type="time" required></div>
-				<div class="field"><label for="res-space">Espaço</label>
-					<select id="res-space" name="space" required>
-						<option value="Pátio Morro Bento">Pátio Morro Bento</option>
-						<option value="Pátio Mutamba">Pátio Mutamba</option>
-						<option value="Roots">Roots</option>
-						<option value="Pátio Aeroporto">Pátio Aeroporto</option>
-					</select>
-				</div>
-				<div class="field full"><label for="res-notes">Observações</label><textarea id="res-notes" name="notes"></textarea></div>
-				<div class="field full"><button class="btn" type="submit">Confirmar pedido de reserva</button></div>
-			</form>
-			<div class="form-status hidden" data-reserva-status role="status"></div>
-		</div>
-	</div>
 `);
-
-const modal = document.querySelector('[data-reserva-modal]');
-const openModal = () => { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; };
-const closeModal = () => { modal.classList.add('hidden'); document.body.style.overflow = ''; };
-
-document.addEventListener('click', (event) => {
-	if (event.target.closest('[data-open-reserva]')) {
-		event.preventDefault();
-		openModal();
-	}
-	if (event.target.closest('[data-close-reserva]') || event.target === modal) closeModal();
-});
-
-document.addEventListener('keydown', (event) => {
-	if (event.key === 'Escape') closeModal();
-});
 
 window.addEventListener('scroll', () => {
 	if (header) header.classList.toggle('is-scrolled', window.scrollY > 24);
